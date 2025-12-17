@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import Search from './components/Search.jsx'
 import Spinner from './components/Spinner.jsx'
 import MovieCard from './components/MovieCard.jsx'
-import { useDebounce } from 'react-use'
+import { createGlobalState, useDebounce } from 'react-use'
 import { getTrendingMovies, updateSearchCount } from './appwrite.js'
 
 const API_BASE_URL = 'https://api.themoviedb.org/3';
@@ -47,6 +47,8 @@ const App = () => {
 
       const data = await response.json();
 
+      console.log(">>>>data", data);
+
       if(data.Response === 'False') {
         setErrorMessage(data.Error || 'Failed to fetch movies');
         setMovieList([]);
@@ -69,6 +71,8 @@ const App = () => {
   const loadTrendingMovies = async () => {
     try {
       const movies = await getTrendingMovies();
+
+      console.log(">>>>movies", movies);
 
       setTrendingMovies(movies);
     } catch (error) {
