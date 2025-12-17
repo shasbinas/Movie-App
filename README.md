@@ -33,7 +33,7 @@ Ensure you have the following installed:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/movie-app.git
+   git clone https://github.com/shasbinas/Movie-App.git
    cd movie-app
    ```
 
